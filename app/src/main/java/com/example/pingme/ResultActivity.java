@@ -2,6 +2,7 @@ package com.example.pingme;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -19,10 +20,14 @@ public class ResultActivity extends AppCompatActivity {
     }
 
     public void onSnoozeClick(View v) {
-
+        Intent intent = new Intent(getApplicationContext(), PingService.class);
+        intent.setAction(CommonConstants.ACTION_SNOOZE);
+        startService(intent);
     }
 
     public void onDismissClick(View v) {
-
+        Intent intent = new Intent(getApplicationContext(), PingService.class);
+        intent.setAction(CommonConstants.ACTION_DISMISS);
+        startService(intent);
     }
 }
